@@ -16,8 +16,7 @@ To start the consumption and json file writing
 npm run consume or yarn consume
 ```
 
-After setting up the app environment, open the `.env` file generated in 
-your app and fill the value of Twitter API keys and secrets with the key gotten from [IPStack](http://api.ipstack.com)
+After setting up the app environment, create a `.env` file and fill the value of Twitter API keys and secrets with the key gotten from [Twitter](http://twitter.com)
 
 Dependencies
 ```bash
