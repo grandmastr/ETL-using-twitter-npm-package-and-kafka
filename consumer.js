@@ -1,6 +1,7 @@
-const kafka = require('kafka-node');
-const bp = require('body-parser');
-const config = require('./config');
+const kafka = require("kafka-node"),
+  bp = require("body-parser"),
+  config = require("./config"),
+jsonfile = require("jsonfile");
 
 try {
   const Consumer = kafka.Consumer;
@@ -12,15 +13,16 @@ try {
       autoCommit: true,
       fetchMaxWaitMs: 1000,
       fetchMaxBytes: 1024 * 1024,
-      encoding: 'utf8',
+      encoding: "utf8",
       fromOffset: true
     }
   );
-  consumer.on('message', async message => {
-    console.log(message.value);
+  consumer.on("message", async message => {
+    console.log(message);
+    jsonfile.writeFileSync("data.json", message.value, { EOL: ',\n' })
   });
-  consumer.on('error', err => {
-    console.log('Boy you suck', err);
+  consumer.on("error", err => {
+    console.log("Boy you suck", err);
   });
 } catch (e) {
   console.log(e);

@@ -10,7 +10,7 @@ require("dotenv").config();
 
 client.on("connect", () => {
   console.log(
-    "Connected to the redis database successfully, fetching details, and proceeding to pushing to kafka now now..."
+    "Connected to the redis database successfully, fetching details, and proceeding to pushing to kafka now..."
   );
 });
 
@@ -52,14 +52,14 @@ twitterClient.stream(
           user_id: user_id || event.user.id
         };
 
-        cron.schedule("5****", () => {
+        // the time can be adjusted tp whatever you want
+        // cron.schedule("* * * * * *", () => {
           try {
             const Producer = kafka.Producer;
             const client = new kafka.KafkaClient(config.kafka_server);
             const producer = new Producer(client);
             const kafka_topic = config.kafka_topic;
-            console.log(kafka_topic);
-    
+            
             let payloads = [
               {
                 topic: kafka_topic,
@@ -91,7 +91,7 @@ twitterClient.stream(
           } catch (e) {
             console.log(e);
           }
-        })
+        // })
       });
     });
     stream.on("error", error => {

@@ -13,6 +13,7 @@
     "twitter": "^1.7.1"
   },
   "scripts": {
-    "start": "node producer.js"
+    "produce": "node producer.js",
+    "consume": "node consumer.js"
   }
 }
