@@ -21,12 +21,6 @@ your app and fill the value of Twitter API keys and secrets with the key gotten 
 
 Dependencies
 ```bash
-	dotenv, 
-	jsonfile,
-	kafka-node,
-	node-cron,
-	prettier,
-	redis,
-	twitter
+dotenv, jsonfile, kafka-node, node-cron, prettier, redis, twitter
 ```
 
