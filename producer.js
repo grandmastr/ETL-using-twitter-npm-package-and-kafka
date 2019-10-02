@@ -53,7 +53,7 @@ twitterClient.stream(
         };
 
         // the time can be adjusted tp whatever you want
-        // cron.schedule("* * * * * *", () => {
+        cron.schedule("* * * * * *", () => {
           try {
             const Producer = kafka.Producer;
             const client = new kafka.KafkaClient(config.kafka_server);
@@ -91,7 +91,7 @@ twitterClient.stream(
           } catch (e) {
             console.log(e);
           }
-        // })
+        })
       });
     });
     stream.on("error", error => {
