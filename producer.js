@@ -52,7 +52,7 @@ twitterClient.stream(
           user_id: user_id || event.user.id
         };
 
-        // the time can be adjusted tp whatever you want
+        // the time can be adjusted to whatever you want
         cron.schedule("* * * * * *", () => {
           try {
             const Producer = kafka.Producer;
